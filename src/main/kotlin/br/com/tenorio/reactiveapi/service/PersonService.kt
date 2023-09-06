@@ -2,12 +2,14 @@ package br.com.tenorio.reactiveapi.service
 
 import br.com.tenorio.reactiveapi.models.Person
 import br.com.tenorio.reactiveapi.repository.PersonRepository
+import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
 @Service
-class PersonService (private val personRepository: PersonRepository) {
+class PersonService(private val personRepository: PersonRepository,
+                    private val kafkaTemplate: KafkaTemplate<String, Any>) {
 
     fun findAll(): Flux<Person> {
         return personRepository.findAll()
@@ -18,7 +20,13 @@ class PersonService (private val personRepository: PersonRepository) {
     }
 
     fun save(person: Person): Mono<Person> {
-        return personRepository.save(person)
+        val savedPerson = personRepository.save(person)
+        savedPerson.subscribe { person ->
+            // Faça algo com o objeto Person
+            kafkaTemplate.send("person", person)
+        }
+
+        return savedPerson
     }
 
     fun deleteById(id: String): Mono<Void> {
