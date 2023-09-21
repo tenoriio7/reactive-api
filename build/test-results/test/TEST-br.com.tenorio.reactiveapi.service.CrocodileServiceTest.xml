@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="br.com.tenorio.reactiveapi.service.CrocodileServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-09-21T02:41:30" hostname="viniciustenorios-iMac-Pro.local" time="1.093">
+  <properties/>
+  <testcase name="create()" classname="br.com.tenorio.reactiveapi.service.CrocodileServiceTest" time="1.093"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
