@@ -1,7 +1,7 @@
 package br.com.tenorio.reactiveapi.repository
 
-import br.com.tenorio.reactiveapi.models.Person
+import br.com.tenorio.reactiveapi.models.Webhook
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository
 
-interface PersonRepository : ReactiveMongoRepository <Person, String> {
+interface WebhookRepository : ReactiveMongoRepository <Webhook, String> {
 }

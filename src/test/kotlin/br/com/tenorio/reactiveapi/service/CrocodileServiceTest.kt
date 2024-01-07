@@ -1,7 +1,5 @@
 package br.com.tenorio.reactiveapi.service
 
-import br.com.tenorio.reactiveapi.models.Crododile
-import br.com.tenorio.reactiveapi.repository.CrocodileRepository
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -12,7 +10,6 @@ import org.mockito.Mockito
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
-import org.mockito.internal.matchers.Any
 import org.springframework.kafka.core.KafkaTemplate
 import reactor.core.publisher.Mono
 
