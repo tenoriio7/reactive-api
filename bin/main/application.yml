@@ -1,0 +1,16 @@
+#spring:
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/local
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    consumer:
+#      group-id: your-consumer-group
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://admin:admin@notify.akao0vq.mongodb.net/notify?retryWrites=true&w=majority
+      auto-index-creation: true
+  application:
+    name: notify
