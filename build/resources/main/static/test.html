@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Updates</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs"></script>
+    <script>
+        var socket = new SockJS('http://localhost:8080/webhook');
+        var stompClient = Stomp.over(socket);
+        stompClient.connect({}, function(frame) {
+            console.log('Connected: ' + frame);
+            stompClient.subscribe('/topic/webhook', function(message) {
+                var body = JSON.parse(message.body);
+                $("#webhook-value").text(body);
+            });
+        });
+    </script>
+</head>
+<body>
+<h1>Real-time Updates</h1>
+<div id="webhook-value"></div>
+</body>
+</html>

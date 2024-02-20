@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Example</title>
+    <script>
+        var socket = new WebSocket('ws://localhost:8080/ws');
+        socket.onopen = function(event) {
+            console.log('Connected to WebSocket');
+            socket.send('Mensagem de evento manual');
+        };
+        socket.onmessage = function(event) {
+            var mensagem = event.data;
+            console.log('Mensagem recebida:', mensagem);
+            document.getElementById('mensagem').innerText = mensagem;
+        };
+    </script>
+</head>
+<body>
+<h1>WebSocket Example</h1>
+<p>Última mensagem recebida: <span id="mensagem"></span></p>
+</body>
+</html>
