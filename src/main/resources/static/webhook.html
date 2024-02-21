@@ -1,34 +1,75 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <title>Curso Chat</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso webhook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .webhook {
+            margin-bottom: 20px;
+        }
+
+        .message {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+            white-space: pre-wrap;
+        }
+
+        .message:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
+
 <body>
-<h1>Curso Chat</h1>
-
-<div>
-    <input type="text" id="mensagem" />
-    <button id="botao-enviar">Enviar</button>
-</div>
-
-<div>
-    <ul id="mensagens-recebidas"></ul>
+<div class="container">
+    <h1>Marie Charge 💁🏻‍♀️</h1>
+    <div class="webhook" id="webhook">
+        <!-- Mensagens serão adicionadas aqui -->
+    </div>
 </div>
 
 <script>
     var ws = new WebSocket("ws://localhost:8080/webhooks")
-    var mensagem = document.getElementById("mensagem")
-    var botaoEnviar = document.getElementById("botao-enviar")
-    var ul = document.getElementById("mensagens-recebidas")
+    var webhook = document.getElementById("webhook")
 
-    botaoEnviar.onclick = function(){
-        ws.send(mensagem.value)
-    }
-
-    ws.onmessage = function(event) {
-        var li = document.createElement("li")
-        li.appendChild(document.createTextNode(event.data))
-        ul.appendChild(li)
+    ws.onmessage = function (event) {
+        var mensagem = event.data
+        var div = document.createElement("div")
+        div.classList.add("message")
+        div.textContent = JSON.stringify(JSON.parse(mensagem), null, 2)
+        div.style.transform = "scale(0)"
+        webhook.appendChild(div)
+        setTimeout(function () {
+            div.style.transform = "scale(1)"
+        }, 0)
+        webhook.scrollTop = webhook.scrollHeight
     }
 </script>
 </body>
+
 </html>
