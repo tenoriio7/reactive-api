@@ -1,10 +1,10 @@
 package br.com.tenorio.reactiveapi.models
 import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.mapping.Document
+import org.springframework.data.relational.core.mapping.Table
 
-@Document(collection = "webhooks")
+@Table("WEBHOOK")
 data class Webhook(
         @Id
-        val id: String?,
-        val notify: String,
+        val id: Long? = null,
+        val notify: String
 )

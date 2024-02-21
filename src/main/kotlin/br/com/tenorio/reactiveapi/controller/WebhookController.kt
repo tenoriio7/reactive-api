@@ -44,7 +44,7 @@ class WebhookController(private val webhookService: WebhookService) {
     fun create(@RequestBody payload: Map<String, Any>): Mono<Webhook> {
         val jsonPayload = ObjectMapper().writeValueAsString(payload)
         websocketHandler.sendMessageToAll(TextMessage(jsonPayload))
-       return webhookService.save(Webhook(notify = jsonPayload, id = UUID.randomUUID().toString()))
+       return Mono.just(Webhook(notify = jsonPayload))
 
     }
 

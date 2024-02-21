@@ -40,7 +40,9 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-testcontainers")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.testcontainers:junit-jupiter")
-	implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")
+	implementation ("org.springframework.boot:spring-boot-starter-data-r2dbc")
+	implementation ("io.r2dbc:r2dbc-h2")
+
 
 }
 
