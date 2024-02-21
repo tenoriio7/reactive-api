@@ -10,7 +10,7 @@ class JacksonConfig {
     @Bean
     fun objectMapper(): ObjectMapper {
         return ObjectMapper()
-                .registerModule(KotlinModule())
-                .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
+            .registerModule(KotlinModule())
+            .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
     }
 }

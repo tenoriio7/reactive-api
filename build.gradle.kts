@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "3.1.2"
-	id("io.spring.dependency-management") version "1.1.2"
-	kotlin("jvm") version "1.8.22"
-	kotlin("plugin.spring") version "1.8.22"
+	id("org.springframework.boot") version "3.2.2"
+	id("io.spring.dependency-management") version "1.1.4"
+	kotlin("jvm") version "1.9.22"
+	kotlin("plugin.spring") version "1.9.22"
 }
 
 group = "br.com.tenorio"
@@ -26,6 +26,7 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("org.springframework.boot:spring-boot-starter-websocket")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation ("com.google.code.gson:gson:2.8.8")
