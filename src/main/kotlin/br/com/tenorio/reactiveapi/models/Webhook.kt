@@ -6,5 +6,5 @@ import org.springframework.data.relational.core.mapping.Table
 data class Webhook(
         @Id
         val id: Long? = null,
-        val notify: String
+        val notification: String
 )

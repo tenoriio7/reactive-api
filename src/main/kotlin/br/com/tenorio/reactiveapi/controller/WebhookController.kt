@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.web.socket.TextMessage
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
-import java.util.UUID
 
 @RestController
 @RequestMapping("/webhook")
@@ -28,28 +27,28 @@ class WebhookController(private val webhookService: WebhookService) {
         return webhookService.findAll()
     }
 
+
+
     @GetMapping("/{id}")
     fun getById(@PathVariable id: String): Mono<Webhook> {
         return webhookService.findById(id)
     }
 
-
-//    @PostMapping
-//    fun create(@RequestBody webhook: Webhook): Mono<Webhook> {
-//        websocketHandler.sendMessageToAll(TextMessage(webhook.notify))
-//        return webhookService.save(webhook)
-//    }
-
     @PostMapping
     fun create(@RequestBody payload: Map<String, Any>): Mono<Webhook> {
         val jsonPayload = ObjectMapper().writeValueAsString(payload)
         websocketHandler.sendMessageToAll(TextMessage(jsonPayload))
-       return Mono.just(Webhook(notify = jsonPayload))
+        return webhookService.save(Webhook(notification = jsonPayload))
 
     }
 
     @DeleteMapping("/{id}")
     fun deleteById(@PathVariable id: String): Mono<Void> {
         return webhookService.deleteById(id)
+    }
+
+    @DeleteMapping
+    fun deleteAll(): Mono<Void> {
+        return webhookService.delete()
     }
 }
