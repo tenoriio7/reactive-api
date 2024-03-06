@@ -2,9 +2,9 @@ package br.com.tenorio.reactiveapi.models
 
 import com.google.gson.annotations.SerializedName
 import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.mapping.Document
+import org.springframework.data.relational.core.mapping.Table
 
-@Document
+@Table("Crododile")
 data class Crododile(
         @Id
         val id: String?,
