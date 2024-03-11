@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  # Serviço do ZooKeeper
+  zookeeper:
+    # Imagem Docker do ZooKeeper
+    image: wurstmeister/zookeeper:3.4.6
+    container_name: zookeeper
+    ports:
+      - "2181:2181"  # Porta do ZooKeeper
+    networks:
+      - kafka-network
+
+  # Serviço do Kafka
+  kafka:
+    # Imagem Docker do Kafka
+    image: wurstmeister/kafka:2.13-2.7.0
+    container_name: kafka
+    ports:
+      - "9092:9092"  # Porta do Kafka
+    environment:
+      # Configurações de rede do Kafka
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181  # Conexão com o ZooKeeper
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - kafka-network
+    depends_on:
+      - zookeeper
+
+# Definição da rede para comunicação entre os serviços
+networks:
+  kafka-network:
+    driver: bridge

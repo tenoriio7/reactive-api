@@ -8,7 +8,7 @@ import org.springframework.data.relational.core.mapping.Table
 data class Person(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Long?,
+        val id: Long,
         val name: String,
         val age: Int
 )

@@ -44,6 +44,10 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
 	implementation("io.r2dbc:r2dbc-h2")
 	implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("de.codecentric:chaos-monkey-spring-boot:3.1.0")
+	implementation ("org.springframework.boot:spring-boot-starter-actuator")
+	implementation ("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+
 
 
 
