@@ -6,6 +6,8 @@ import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
+import java.time.Duration
+import java.util.concurrent.TimeoutException
 
 @Service
 class PersonService(private val personRepository: PersonRepository,
@@ -20,13 +22,13 @@ class PersonService(private val personRepository: PersonRepository,
     }
 
     fun save(person: Person): Mono<Person> {
-        val savedPerson = personRepository.save(person)
-        savedPerson.subscribe { person ->
-            // Faça algo com o objeto Person
-            kafkaTemplate.send("person", person)
-        }
-
-        return savedPerson
+        return personRepository.save(person)
+            .timeout(Duration.ofSeconds(1))
+            .doOnSuccess { kafkaTemplate.send("person", it) }
+            .onErrorResume(TimeoutException::class.java) {
+                println("Timeout ao salvar a pessoa")
+                throw RuntimeException("Timeout ao salvar a pessoa")
+            }
     }
 
     fun deleteById(id: String): Mono<Void> {
