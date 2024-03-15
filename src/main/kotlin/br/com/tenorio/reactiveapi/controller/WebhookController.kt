@@ -27,23 +27,21 @@ class WebhookController(private val webhookService: WebhookService) {
         return webhookService.findAll()
     }
 
-
-
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: String): Mono<Webhook> {
+    fun getById(@PathVariable id: Long): Mono<Webhook> {
         return webhookService.findById(id)
     }
 
     @PostMapping
     fun create(@RequestBody payload: Map<String, Any>): Mono<Webhook> {
         val jsonPayload = ObjectMapper().writeValueAsString(payload)
-        websocketHandler.sendMessageToAll(TextMessage(jsonPayload))
-        return webhookService.save(Webhook(notification = jsonPayload))
-
+        return webhookService.save(Webhook(notification = jsonPayload)).doOnSuccess {
+            websocketHandler.sendMessageToAll(TextMessage(jsonPayload))
+        }
     }
 
     @DeleteMapping("/{id}")
-    fun deleteById(@PathVariable id: String): Mono<Void> {
+    fun deleteById(@PathVariable id: Long): Mono<Void> {
         return webhookService.deleteById(id)
     }
 

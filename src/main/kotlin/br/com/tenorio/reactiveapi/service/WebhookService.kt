@@ -27,8 +27,8 @@ class WebhookService(
         return  webhookRepository.deleteAll()
     }
 
-    fun findById(id: String): Mono<Webhook> {
-        return webhookRepository.findById(id.toLong())
+    fun findById(id: Long): Mono<Webhook> {
+        return webhookRepository.findById(id)
     }
 
     fun save(webhook: Webhook): Mono<Webhook> {
@@ -36,7 +36,7 @@ class WebhookService(
         return savedWebhook
     }
 
-    fun deleteById(id: String): Mono<Void> {
-        return webhookRepository.deleteById(id.toLong())
+    fun deleteById(id: Long): Mono<Void> {
+        return webhookRepository.deleteById(id)
     }
 }
