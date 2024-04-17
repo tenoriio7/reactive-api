@@ -1,6 +1,8 @@
+import br.com.tenorio.reactiveapi.service.PersonService
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -22,6 +24,9 @@ class KafkaConsumerConfig {
 
     @Value("\${spring.kafka.consumer.group-id}")
     private lateinit var groupId: String
+
+    @Autowired
+    lateinit var personService: PersonService
 
     @Bean
     fun consumerConfigs(): Map<String, Any> {
@@ -45,8 +50,8 @@ class KafkaConsumerConfig {
         return factory
     }
 
-    @KafkaListener(topics = ["person"], groupId = "reactive-api")
+    @KafkaListener(topics = ["person-async"], groupId = "reactive-api")
     fun listen(record: ConsumerRecord<String, String>) {
-        println("Received message: ${record.value()}")
+        println("Received message config: ${record.value()}")
     }
 }

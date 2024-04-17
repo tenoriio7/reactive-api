@@ -17,12 +17,13 @@ class KafkaConsumerService {
     @Autowired
     lateinit var personService:PersonService
 
-    @KafkaListener(topics = ["person"], groupId = "reactive-api")
+    @KafkaListener(topics = ["person-async"], groupId = "reactive-api")
     fun consume(message: String) {
-        println("Consumed message: $message")
+        println("Consumed message service: $message")
         val mapper: ObjectMapper = jacksonObjectMapper()
         val person: Person = mapper.readValue(message)
-        person.id += 1L
-        personService.save(person)
+        person.id += 0L
+        val savedPerson  = personService.save(person)
+        println(savedPerson.block())
     }
 }

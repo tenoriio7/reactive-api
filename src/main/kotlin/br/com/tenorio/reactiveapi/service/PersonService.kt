@@ -22,14 +22,9 @@ class PersonService(private val personRepository: PersonRepository,
     }
 
     fun save(person: Person): Mono<Person> {
-        return personRepository.save(person)
-            .doOnSuccess {
-                println("pessoa salva $person")
-                kafkaTemplate.send("person", person) }
-            .onErrorResume() {
-                println("Timeout ao salvar a pessoa")
-                throw RuntimeException("Timeout ao salvar a pessoa")
-            }
+        val savedPerson =  personRepository.save(person)
+        kafkaTemplate.send("person", person)
+        return savedPerson
     }
 
     fun deleteById(id: String): Mono<Void> {
