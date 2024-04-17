@@ -23,9 +23,10 @@ class PersonService(private val personRepository: PersonRepository,
 
     fun save(person: Person): Mono<Person> {
         return personRepository.save(person)
-            .timeout(Duration.ofSeconds(1))
-            .doOnSuccess { kafkaTemplate.send("person", it) }
-            .onErrorResume(TimeoutException::class.java) {
+            .doOnSuccess {
+                println("pessoa salva $person")
+                kafkaTemplate.send("person", person) }
+            .onErrorResume() {
                 println("Timeout ao salvar a pessoa")
                 throw RuntimeException("Timeout ao salvar a pessoa")
             }

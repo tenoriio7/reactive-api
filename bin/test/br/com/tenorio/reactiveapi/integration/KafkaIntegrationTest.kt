@@ -6,9 +6,11 @@ import br.com.tenorio.reactiveapi.models.Person
 import br.com.tenorio.reactiveapi.repository.PersonRepository
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.ConsumerRecord
+import org.apache.kafka.clients.consumer.ConsumerRecords
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import org.apache.kafka.clients.producer.Producer
 import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.common.record.Record
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
@@ -71,24 +73,13 @@ class KafkaIntegrationTest {
         consumer.subscribe(listOf("person"))
     }
 
-
-    @Test
-    fun testReceivingKafkaEvents() {
-        val producer: Producer<Int, String> = configureProducer()
-
-        producer.send(ProducerRecord<Int, String>(TEST_TOPIC, 123, "my-test-value"))
-
-        producer.close()
-    }
-
     @Test
     fun testCreatePerson() {
         val person = Person(
-            name = "vinicin",
+            name = "vinicius",
             age = 30,
             id = 1
         )
-        println("aquiiii ${embeddedKafkaBroker?.brokersAsString}")
 
         `when`(personRepository.save(any(Person::class.java))).thenReturn(Mono.just(person))
 
@@ -98,13 +89,14 @@ class KafkaIntegrationTest {
             .bodyValue(person)
             .exchange()
 
-
-        val records: Iterable<ConsumerRecord<String, String>> = consumer.poll(Duration.ofSeconds(10))
+        val records: ConsumerRecords<String, String>? = consumer.poll(Duration.ofSeconds(10))
         val consumedMessages = mutableListOf<String>()
-        records.iterator().forEachRemaining { consumedMessages.add(it.value()) }
+        records!!.iterator().forEachRemaining { consumedMessages.add(it.value()) }
 
-        // Asserção para verificar se a mensagem foi produzida
         assert(consumedMessages.isNotEmpty())
+
+        val message = consumedMessages.get(0)
+        println(message::class.java)
     }
 
 
