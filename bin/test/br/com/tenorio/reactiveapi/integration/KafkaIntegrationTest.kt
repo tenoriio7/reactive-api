@@ -4,6 +4,9 @@ import br.com.tenorio.reactiveapi.ReactiveApiApplication
 import br.com.tenorio.reactiveapi.controller.PersonController
 import br.com.tenorio.reactiveapi.models.Person
 import br.com.tenorio.reactiveapi.repository.PersonRepository
+import br.com.tenorio.reactiveapi.service.KafkaConsumerService
+import br.com.tenorio.reactiveapi.service.PersonService
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.clients.consumer.ConsumerRecords
@@ -16,7 +19,7 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.ArgumentMatchers.any
-import org.mockito.Mockito.`when`
+import org.mockito.Mockito.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties
 import org.springframework.boot.test.context.SpringBootTest
@@ -24,6 +27,7 @@ import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.http.MediaType
 import org.springframework.kafka.annotation.EnableKafka
 import org.springframework.kafka.core.DefaultKafkaProducerFactory
+import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.test.EmbeddedKafkaBroker
 import org.springframework.kafka.test.context.EmbeddedKafka
 import org.springframework.kafka.test.utils.KafkaTestUtils
@@ -34,20 +38,21 @@ import java.time.Duration
 
 
 @EnableKafka
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = [ReactiveApiApplication::class])
+@SpringBootTest(
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+    classes = [ReactiveApiApplication::class, KafkaConsumerService::class, PersonService::class]
+)
 @EmbeddedKafka(
     partitions = 4,
     controlledShutdown = false,
     brokerProperties = [
         "listeners=PLAINTEXT://localhost:9092",
         "port=9092"
-    ], topics = ["person"]
+    ], topics = ["person", "person-async"]
 )
 @TestPropertySource(properties = ["spring.kafka.bootstrap-servers=\${spring.embedded.kafka.brokers}"])
 class KafkaIntegrationTest {
 
-
-    private val TEST_TOPIC = "testTopic"
 
     @Autowired
     lateinit var webTestClient: WebTestClient
@@ -60,10 +65,14 @@ class KafkaIntegrationTest {
 
     lateinit var consumer: KafkaConsumer<String, String>
 
+    @Autowired
+    lateinit var kafkaTemplate: KafkaTemplate<String, Any>
+
 
     @BeforeEach
-    fun setup(): Unit {
+    fun setup() {
         val bootstrapServers = embeddedKafkaBroker!!.brokersAsString
+        println(bootstrapServers)
         System.setProperty("spring.kafka.bootstrap-servers", bootstrapServers)
 
         val consumerProps = KafkaTestUtils.consumerProps("test-group", "true", embeddedKafkaBroker)
@@ -81,6 +90,13 @@ class KafkaIntegrationTest {
             id = 1
         )
 
+        webTestClient.post()
+            .uri("/person")
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(person)
+            .exchange()
+
+
         `when`(personRepository.save(any(Person::class.java))).thenReturn(Mono.just(person))
 
         webTestClient.post()
@@ -96,12 +112,7 @@ class KafkaIntegrationTest {
         assert(consumedMessages.isNotEmpty())
 
         val message = consumedMessages.get(0)
-        println(message::class.java)
+        println("pica de cachorro $message")
     }
-
-
-    private fun configureProducer(): Producer<Int, String> {
-        val producerProps: Map<String, Any> = HashMap(KafkaTestUtils.producerProps(embeddedKafkaBroker))
-        return DefaultKafkaProducerFactory<Int, String>(producerProps).createProducer()
-    }
+    
 }
