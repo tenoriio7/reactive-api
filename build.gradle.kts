@@ -1,5 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val pactVersion = "4.4.9"
+
+
 plugins {
 	id("org.springframework.boot") version "3.2.2"
 	id("io.spring.dependency-management") version "1.1.4"
@@ -50,10 +53,9 @@ dependencies {
 
 	testImplementation("org.springframework.kafka:spring-kafka-test")
 
-
-
-
-
+	implementation("au.com.dius.pact.consumer:junit5:4.4.9")
+	implementation("au.com.dius.pact.provider:junit5spring:4.4.9")
+	implementation("commons-codec:commons-codec:1.15")
 
 }
 

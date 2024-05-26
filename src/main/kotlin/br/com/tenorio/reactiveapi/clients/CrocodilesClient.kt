@@ -6,13 +6,12 @@ import org.springframework.web.reactive.function.client.bodyToMono
 import reactor.core.publisher.Mono
 
 @Service
-class CrocodilesClient {
-    private val webClient: WebClient = WebClient.create("https://test-api.k6.io")
-
+class CrocodilesClient(url:String="https://test-api.k6.io") {
+    private val webClient: WebClient = WebClient.create(url)
     fun getCrocodileById(id: Long): Mono<String> {
-        return webClient.get()
-                .uri("/public/crocodiles/{id}/", id)
-                .retrieve()
-                .bodyToMono(String::class.java)
+            return webClient.get()
+                    .uri("/public/crocodiles/${id}")
+                    .retrieve()
+                    .bodyToMono(String::class.java)
     }
 }
