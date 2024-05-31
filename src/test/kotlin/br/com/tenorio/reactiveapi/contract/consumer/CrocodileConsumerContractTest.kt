@@ -17,7 +17,7 @@ class CrocodilePactsConsumerPactTest : CrocodilePacts(){
 
 
     @Test
-    @PactTestFor(providerName = "getCrocodile1")
+    @PactTestFor(providerName = "getCrocodile")
     fun test(mockServer: MockServer) {
 
         val crocodileClient = CrocodilesClient(mockServer.getUrl())

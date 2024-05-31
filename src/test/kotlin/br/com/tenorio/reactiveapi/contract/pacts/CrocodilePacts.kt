@@ -6,8 +6,8 @@ import au.com.dius.pact.core.model.annotations.Pact
 
 
 open class CrocodilePacts {
-    @Pact(provider = "getCrocodile1", consumer = "reactive_api")
-    fun getCrocodile1(builder: PactDslWithProvider): V4Pact {
+    @Pact(provider = "getCrocodile", consumer = "reactive_api")
+    fun getCrocodile(builder: PactDslWithProvider): V4Pact {
         return builder
             .given("threre is a crocodile with id 1")
             .uponReceiving("Retrieve crocodile 1")

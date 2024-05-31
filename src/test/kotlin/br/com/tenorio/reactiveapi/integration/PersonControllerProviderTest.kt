@@ -1,26 +1,40 @@
-package br.com.tenorio.reactiveapi.integration
-
-import au.com.dius.pact.provider.junit.PactRunner
-import au.com.dius.pact.provider.junit.target.HttpTarget
+import au.com.dius.pact.provider.junit5.PactVerificationContext
+import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider
 import au.com.dius.pact.provider.junitsupport.Provider
 import au.com.dius.pact.provider.junitsupport.State
-import au.com.dius.pact.provider.junitsupport.loader.PactUrl
-import au.com.dius.pact.provider.junitsupport.target.Target
-import au.com.dius.pact.provider.junitsupport.target.TestTarget
-import org.junit.jupiter.api.Test
-import org.junit.runner.RunWith
+import au.com.dius.pact.provider.junitsupport.loader.PactFolder
+import br.com.tenorio.reactiveapi.ReactiveApiApplication
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.TestTemplate
+import org.junit.jupiter.api.extension.ExtendWith
+import org.springframework.boot.SpringApplication
+import org.springframework.web.context.ConfigurableWebApplicationContext
 
-@RunWith(PactRunner::class)
-@Provider("person")
-@PactUrl(urls = ["file:src/test/resources/reactive_api-createPerson.json"])
+
+@Provider("reactive_api")
+@PactFolder("target/pacts")
 class PersonControllerProviderTest {
 
-    @TestTarget
-    val target = HttpTarget("localhost",8080)
 
-    @Test
-    fun aaa(){
+    companion object {
+        var application: ConfigurableWebApplicationContext? = null
 
+        @JvmStatic
+        @BeforeAll
+        fun start(): Unit {
+            application = SpringApplication.run(ReactiveApiApplication::class.java) as ConfigurableWebApplicationContext
+        }
+    }
+
+    @TestTemplate
+    @ExtendWith(PactVerificationInvocationContextProvider::class)
+    fun pactVerificationTestTemplate(context: PactVerificationContext) {
+        context.verifyInteraction()
+    }
+
+
+    @State("threre create person")
+    fun toPostState() {
     }
 
 }

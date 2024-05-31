@@ -14,7 +14,11 @@
       ],
       "request": {
         "method": "POST",
-        "path": "/person"
+        "path": "/person",
+          "body": {
+            "name": "vini",
+            "age": 32
+          }
       },
       "response": {
         "body": {
@@ -41,6 +45,6 @@
     }
   },
   "provider": {
-    "name": "person"
+    "name": "reactive_api"
   }
 }
