@@ -39,22 +39,6 @@ class PersonControllerProviderTest : CrocodilePacts(){
         context.verifyInteraction()
     }
 
-
-    @Pact(provider = "reactive_api", consumer = "reactive_api")
-    fun createPactForCreatePerson(builder: PactDslWithProvider): RequestResponsePact {
-        return builder
-            .given("threre create person")
-            .uponReceiving("a request to create a person")
-            .path("/person")
-            .method("POST")
-            .body("{\"name\": \"vini\", \"age\": 32}")
-            .headers(Collections.singletonMap("Content-Type", "application/json"))
-            .willRespondWith()
-            .status(201)
-            .body("{\"id\": 1, \"name\": \"vini\", \"age\": 32}")
-            .toPact()
-    }
-
     @State("threre create person")
     fun cleanUpCreatePersonState() {
     }
