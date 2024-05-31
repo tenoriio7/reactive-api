@@ -1,50 +1,48 @@
-{
-  "consumer": {
-    "name": "reactive_api"
-  },
-  "interactions": [
-    {
-      "description": "Retrieve person",
-      "key": "d3a1c1ec",
-      "pending": false,
-      "providerStates": [
-        {
-          "name": "threre create person"
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "path": "/person",
-          "body": {
-            "name": "vini",
-            "age": 32
-          }
-      },
-      "response": {
-        "body": {
-          "content": {
-              "id": 1,
-              "name": "vini",
-              "age": 32
-          },
-          "contentType": "application/json",
-          "encoded": false
-        },
-        "status": 201
-      },
-      "transport": "https",
-      "type": "Synchronous/HTTP"
-    }
-  ],
-  "metadata": {
-    "pact-jvm": {
-      "version": "4.4.9"
-    },
-    "pactSpecification": {
-      "version": "4.0"
-    }
-  },
-  "provider": {
-    "name": "reactive_api"
-  }
-}
+//{
+//  "consumer": {
+//    "name": "reactive_api"
+//  },
+//  "provider": {
+//    "name": "your_provider_name_here"
+//  },
+//  "interactions": [
+//    {
+//      "description": "Retrieve persons",
+//      "providerStates": [
+//        {
+//          "name": "threre create persons"
+//        }
+//      ],
+//      "request": {
+//        "method": "POST",
+//        "path": "/person",
+//        "headers": {
+//          "Content-Type": "application/json"
+//        },
+//        "body": {
+//          "name": "vini",
+//          "age": 32
+//        }
+//      },
+//      "response": {
+//        "status": 201,
+//        "headers": {
+//          "Content-Type": "application/json"
+//        },
+//        "body": {
+//          "id": 1,
+//          "name": "vini",
+//          "age": 32
+//        }
+//      }
+//    }
+//  ],
+//  "metadata": {
+//    "pact-jvm": {
+//      "version": "4.4.9"
+//    },
+//    "pactSpecification": {
+//      "version": "4.0"
+//    }
+//  }
+//}

@@ -1,8 +1,10 @@
 package br.com.tenorio.reactiveapi.contract.pacts
 
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider
+import au.com.dius.pact.core.model.RequestResponsePact
 import au.com.dius.pact.core.model.V4Pact
 import au.com.dius.pact.core.model.annotations.Pact
+import java.util.*
 
 
 open class CrocodilePacts {
