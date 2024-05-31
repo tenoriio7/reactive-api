@@ -4,26 +4,32 @@
   },
   "interactions": [
     {
-      "description": "Retrieve crocodile 1",
-      "key": "d3a1c1ec",
+      "description": "Retrieve create",
+      "key": "73663f82",
       "pending": false,
       "providerStates": [
         {
-          "name": "threre is a crocodile with id 1"
+          "name": "need create a person"
         }
       ],
       "request": {
-        "method": "GET",
-        "path": "/public/crocodiles/1"
+        "body": {
+          "content": {
+            "age": 32,
+            "name": "vini"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "method": "POST",
+        "path": "/person"
       },
       "response": {
         "body": {
           "content": {
-            "age": 13,
-            "date_of_birth": "2010-06-27",
+            "age": 32,
             "id": 1,
-            "name": "Bert",
-            "sex": "M"
+            "name": "vini"
           },
           "contentType": "application/json",
           "encoded": false
@@ -43,6 +49,6 @@
     }
   },
   "provider": {
-    "name": "getCrocodile1"
+    "name": "createPerson"
   }
 }

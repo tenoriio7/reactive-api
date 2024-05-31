@@ -4,28 +4,32 @@
   },
   "interactions": [
     {
-      "description": "Retrieve person",
-      "key": "d3a1c1ec",
+      "description": "Retrieve create",
+      "key": "73663f82",
       "pending": false,
       "providerStates": [
         {
-          "name": "threre create person"
+          "name": "need create a person"
         }
       ],
       "request": {
+        "body": {
+          "content": {
+            "age": 32,
+            "name": "vini"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
         "method": "POST",
-        "path": "/person",
-        "body": "{\"name\": \"vini\", \"age\": 32}",
-        "headers": {
-          "Content-Type": "application/json"
-        }
+        "path": "/person"
       },
       "response": {
         "body": {
           "content": {
+            "age": 32,
             "id": 1,
-            "name": "vini",
-            "age": 32
+            "name": "vini"
           },
           "contentType": "application/json",
           "encoded": false

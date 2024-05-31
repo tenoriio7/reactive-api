@@ -6,20 +6,14 @@ import br.com.tenorio.reactiveapi.contract.pacts.CrocodilePacts
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.springframework.web.reactive.function.client.WebClient
-import java.io.IOException
 
 
 @ExtendWith(PactConsumerTestExt::class)
 class CrocodilePactsConsumerPactTest : CrocodilePacts(){
 
-
-
-
     @Test
     @PactTestFor(providerName = "getCrocodile")
     fun test(mockServer: MockServer) {
-
         val crocodileClient = CrocodilesClient(mockServer.getUrl())
         val statusCode = 0
         val response = crocodileClient.getCrocodileById(1).block()

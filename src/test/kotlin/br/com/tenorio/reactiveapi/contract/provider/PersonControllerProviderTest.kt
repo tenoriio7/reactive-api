@@ -43,4 +43,8 @@ class PersonControllerProviderTest : CrocodilePacts(){
     fun cleanUpCreatePersonState() {
     }
 
+    @State("need create a person")
+    fun cleanUpCreatePersonState2() {
+    }
+
 }

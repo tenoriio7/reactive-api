@@ -53,10 +53,12 @@ dependencies {
 
 	testImplementation("org.springframework.kafka:spring-kafka-test")
 
-	implementation("au.com.dius.pact.consumer:junit5:4.4.9")
 	implementation("au.com.dius.pact.provider:junit5:4.4.9")
 	implementation("commons-codec:commons-codec:1.15")
 	testImplementation("org.mockito:mockito-core:3.11.2")
+
+
+	testImplementation("au.com.dius.pact.consumer:junit5:4.4.9")
 
 
 }
