@@ -22,4 +22,18 @@ open class PersonPacts {
             .body("""{"id": 1, "name": "vini", "age": 32}""".trimIndent())
             .toPact(V4Pact::class.java)
     }
+
+    @Pact(provider = "reactive_apiv2", consumer = "other_api")
+    fun createPersonV2(builder: PactDslWithProvider): V4Pact {
+        return builder
+            .given("need create a person")
+            .uponReceiving("Retrieve create")
+            .path("/person") // Especifique um valor fixo para o ID, qualquer valor servirá para este contrato
+            .method("POST")
+            .body("""{"name": "vini","age": 32}""")
+            .willRespondWith()
+            .status(200)
+            .body("""{"id": 1, "name": "vini", "age": 32}""".trimIndent())
+            .toPact(V4Pact::class.java)
+    }
 }

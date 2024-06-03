@@ -15,7 +15,6 @@ class CrocodileConsumerContractTest : CrocodilePacts(){
     @PactTestFor(providerName = "crododile_api")
     fun test(mockServer: MockServer) {
         val crocodileClient = CrocodilesClient(mockServer.getUrl())
-        val statusCode = 0
         val response = crocodileClient.getCrocodileById(1).block()
         assertEquals(response,"""{"id": 1,"name": "Bert","sex": "M","date_of_birth": "2010-06-27","age": 13}""")
         }

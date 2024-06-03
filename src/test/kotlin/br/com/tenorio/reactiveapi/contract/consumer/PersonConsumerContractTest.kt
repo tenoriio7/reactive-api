@@ -26,7 +26,6 @@ class PersonConsumerContractTest : PersonPacts(){
             .bodyValue("""{"name": "vini","age": 32}""")
             .retrieve()
             .bodyToMono(String::class.java)
-
         val expectedResponse = """{"id": 1, "name": "vini", "age": 32}"""
         assertEquals(expectedResponse, response.block())
     }
