@@ -9,7 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 
 
 @ExtendWith(PactConsumerTestExt::class)
-class CrocodilePactsConsumerPactTest : CrocodilePacts(){
+class CrocodileConsumerContractTest : CrocodilePacts(){
 
     @Test
     @PactTestFor(providerName = "crododile_api")
