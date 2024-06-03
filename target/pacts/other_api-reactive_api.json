@@ -1,6 +1,6 @@
 {
   "consumer": {
-    "name": "reactive_api"
+    "name": "other_api"
   },
   "interactions": [
     {

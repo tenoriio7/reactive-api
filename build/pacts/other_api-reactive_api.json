@@ -1,6 +1,6 @@
 {
   "consumer": {
-    "name": "reactive_api"
+    "name": "other_api"
   },
   "interactions": [
     {
@@ -49,6 +49,6 @@
     }
   },
   "provider": {
-    "name": "createPerson"
+    "name": "reactive_api"
   }
 }

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 class CrocodilePactsConsumerPactTest : CrocodilePacts(){
 
     @Test
-    @PactTestFor(providerName = "getCrocodile")
+    @PactTestFor(providerName = "crododile_api")
     fun test(mockServer: MockServer) {
         val crocodileClient = CrocodilesClient(mockServer.getUrl())
         val statusCode = 0

@@ -9,7 +9,7 @@ import java.util.*
 
 
 open class PersonPacts {
-    @Pact(provider = "createPerson", consumer = "reactive_api")
+    @Pact(provider = "reactive_api", consumer = "other_api")
     fun createPerson(builder: PactDslWithProvider): V4Pact {
         return builder
             .given("need create a person")

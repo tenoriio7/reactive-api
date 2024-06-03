@@ -39,12 +39,7 @@ class PersonControllerProviderTest : CrocodilePacts(){
         context.verifyInteraction()
     }
 
-    @State("threre create person")
-    fun cleanUpCreatePersonState() {
-    }
-
     @State("need create a person")
-    fun cleanUpCreatePersonState2() {
-    }
+    fun createPersonContractTest() {}
 
 }

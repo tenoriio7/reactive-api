@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono
 class PersonConsumerContractTest : PersonPacts(){
 
     @Test
-    @PactTestFor(providerName = "createPerson")
+    @PactTestFor(providerName = "reactive_api")
     fun testPerson(mockServer: MockServer) {
         val person = Person(id = 2, name = "vini", age = 32)
         val webClient = WebClient.create(mockServer.getUrl())

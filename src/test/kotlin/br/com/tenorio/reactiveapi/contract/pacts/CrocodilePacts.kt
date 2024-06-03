@@ -8,7 +8,7 @@ import java.util.*
 
 
 open class CrocodilePacts {
-    @Pact(provider = "getCrocodile", consumer = "reactive_api")
+    @Pact(provider = "crododile_api", consumer = "reactive_api")
     fun getCrocodile(builder: PactDslWithProvider): V4Pact {
         return builder
             .given("threre is a crocodile with id 1")
