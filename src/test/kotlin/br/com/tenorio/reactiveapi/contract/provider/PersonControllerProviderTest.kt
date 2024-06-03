@@ -30,8 +30,6 @@ class PersonControllerProviderTest : CrocodilePacts(){
     @LocalServerPort
     var port: Int = 0
 
-    private lateinit var webClient: WebClient
-
     @TestTemplate
     @ExtendWith(PactVerificationInvocationContextProvider::class)
     fun pactVerificationTestTemplate(context: PactVerificationContext) {

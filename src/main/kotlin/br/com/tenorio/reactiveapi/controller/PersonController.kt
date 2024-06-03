@@ -2,6 +2,7 @@ package br.com.tenorio.reactiveapi.controller
 
 import br.com.tenorio.reactiveapi.clients.CrocodilesClient
 import br.com.tenorio.reactiveapi.models.Person
+import br.com.tenorio.reactiveapi.models.v2.PersonV2
 import br.com.tenorio.reactiveapi.service.PersonService
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
@@ -38,8 +39,10 @@ class PersonController(private val personService: PersonService, private val cro
     }
 
     @PostMapping
-    fun create(@RequestBody person: Person): Mono<Person> {
-        return personService.save(person)
+    fun create(@RequestBody person: Person): Mono<PersonV2> {
+        val returnedPerson = PersonV2(id = 1L, nome = "vini", idade = 32, sexo = "male")
+        personService.save(person)
+        return Mono.just(returnedPerson)
     }
 
     @DeleteMapping("/{id}")
