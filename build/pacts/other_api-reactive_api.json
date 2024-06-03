@@ -34,7 +34,7 @@
           "contentType": "application/json",
           "encoded": false
         },
-        "status": 404
+        "status": 200
       },
       "transport": "https",
       "type": "Synchronous/HTTP"

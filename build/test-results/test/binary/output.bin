@@ -1,0 +1,199 @@
+Ã2024-06-03 17:00:10 DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - Found @PactTestFor annotation on test method public final void PersonConsumerContractTest.testPerson(au.com.dius.pact.consumer.MockServer)
+™2024-06-03 17:00:10 DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - providerInfo = ProviderInfo(providerName=reactive_api, hostInterface=, port=, pactVersion=null, providerType=null, https=false, mockServerImplementation=Default, keyStorePath=, keyStoreAlias=, keyStorePassword=, privateKeyPassword=)
+|2024-06-03 17:00:10 DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - Looking for first @Pact method for provider 'reactive_api'
+Ü2024-06-03 17:00:10 DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - Invoking method 'createPerson' to get Pact for the test 'testPerson'
+T2024-06-03 17:00:10 DEBUG a.c.d.p.consumer.BaseJdkMockServer - Starting mock server
+e2024-06-03 17:00:10 DEBUG a.c.d.p.consumer.BaseJdkMockServer - Mock server started: /127.0.0.1:60954
+g2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.c.InternalHttpClient - ex-0000000001 preparing request execution
+n2024-06-03 17:00:16 DEBUG o.a.h.c.h.impl.classic.ProtocolExec - ex-0000000001 target auth state: UNCHALLENGED
+m2024-06-03 17:00:16 DEBUG o.a.h.c.h.impl.classic.ProtocolExec - ex-0000000001 proxy auth state: UNCHALLENGED
+à2024-06-03 17:00:16 DEBUG o.a.h.c.h.impl.classic.ConnectExec - ex-0000000001 acquiring connection with route {}->http://localhost:60954
+j2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.c.InternalHttpClient - ex-0000000001 acquiring endpoint (3 MINUTES)
+ç2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.BasicHttpClientConnectionManager - ep-0000000000 Get connection for route {}->http://localhost:60954
+v2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.BasicHttpClientConnectionManager - ep-0000000000 Using connection [Not bound]
+Å2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.c.InternalHttpClient - ex-0000000001 acquired endpoint InternalConnectionEndpoint-304a3655
+{2024-06-03 17:00:16 DEBUG o.a.h.c.h.impl.classic.ConnectExec - ex-0000000001 opening connection {}->http://localhost:60954
+|2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.c.InternalHttpClient - InternalConnectionEndpoint-304a3655 connecting endpoint (null)
+©2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.BasicHttpClientConnectionManager - InternalConnectionEndpoint-304a3655 connecting endpoint to http://localhost:60954 (3 MINUTES)
+q2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.DefaultHttpClientConnectionOperator - localhost resolving remote address
+z2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.DefaultHttpClientConnectionOperator - localhost resolved to [localhost/127.0.0.1]
+ï2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.DefaultHttpClientConnectionOperator - localhost:60954 connecting null->localhost/127.0.0.1:60954 (3 MINUTES)
+}2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.DefaultManagedHttpClientConnection - http-outgoing-0 set socket timeout to 3 MINUTES
+õ2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.DefaultHttpClientConnectionOperator - localhost:60954 connected null->localhost/127.0.0.1:60954 as http-outgoing-0
+â2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.BasicHttpClientConnectionManager - InternalConnectionEndpoint-304a3655 connected http-outgoing-0
+t2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.c.InternalHttpClient - InternalConnectionEndpoint-304a3655 endpoint connected
+j2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.classic.MainClientExec - ex-0000000001 executing OPTIONS / HTTP/1.1
+l2024-06-03 17:00:16 DEBUG o.a.h.c.h.protocol.RequestAddCookies - ex-0000000001 Cookie spec selected: strict
+2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.c.InternalHttpClient - InternalConnectionEndpoint-304a3655 start execution ex-0000000001
+z2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.BasicHttpClientConnectionManager - ep-0000000000 Executing exchange ex-0000000001
+e2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 >> OPTIONS / HTTP/1.1
+i2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 >> X-PACT-BOOTCHECK: true
+y2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 >> Accept-Encoding: gzip, x-gzip, deflate
+h2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 >> Host: localhost:60954
+i2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 >> Connection: keep-alive
+Ö2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 >> User-Agent: Apache-HttpClient/5.2.3 (Java/17.0.11)
+l2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 >> "OPTIONS / HTTP/1.1[\r][\n]"
+p2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 >> "X-PACT-BOOTCHECK: true[\r][\n]"
+Ä2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 >> "Accept-Encoding: gzip, x-gzip, deflate[\r][\n]"
+o2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 >> "Host: localhost:60954[\r][\n]"
+p2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 >> "Connection: keep-alive[\r][\n]"
+å2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 >> "User-Agent: Apache-HttpClient/5.2.3 (Java/17.0.11)[\r][\n]"
+Z2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 >> "[\r][\n]"
+i2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 << "HTTP/1.1 200 OK[\r][\n]"
+}2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 << "Date: Mon, 03 Jun 2024 20:00:16 GMT[\r][\n]"
+t2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 << "Transfer-encoding: chunked[\r][\n]"
+p2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 << "X-pact-bootcheck: true[\r][\n]"
+Z2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 << "[\r][\n]"
+b2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 << HTTP/1.1 200 OK
+v2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 << Date: Mon, 03 Jun 2024 20:00:16 GMT
+m2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 << Transfer-encoding: chunked
+i2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.headers - http-outgoing-0 << X-pact-bootcheck: true
+x2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.classic.MainClientExec - ex-0000000001 connection can be kept alive for 3 MINUTES
+[2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 << "0[\r][\n]"
+Z2024-06-03 17:00:16 DEBUG org.apache.hc.client5.http.wire - http-outgoing-0 << "[\r][\n]"
+z2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.c.InternalHttpClient - InternalConnectionEndpoint-304a3655 releasing valid endpoint
+ê2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.BasicHttpClientConnectionManager - ep-0000000000 Releasing connection 127.0.0.1:60965<->127.0.0.1:60954
+Ñ2024-06-03 17:00:16 DEBUG o.a.h.c.h.i.i.BasicHttpClientConnectionManager - ep-0000000000 Connection can be kept alive for 3 MINUTES
+O2024-06-03 17:00:16 DEBUG reactor.util.Loggers - Using Slf4j logging framework
+i2024-06-03 17:00:16 DEBUG i.n.u.i.l.InternalLoggerFactory - Using SLF4J as the default logging framework
+\2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+R2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - Java version: 17
+f2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+g2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+g2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - sun.misc.Unsafe.storeFence: available
+d2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+ë2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+j2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+‘2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @7523a2a6
+Å2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+[2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent - sun.misc.Unsafe: available
+ï2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.tmpdir: /var/folders/y9/4jq05fgs23b77hb43n74jlbm80379z/T (java.io.tmpdir)
+m2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+P2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent - Platform: MacOS
+e2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+u2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+i2024-06-03 17:00:16 DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+a2024-06-03 17:00:16 DEBUG i.n.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+u2024-06-03 17:00:16 DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+q2024-06-03 17:00:16 DEBUG i.n.u.i.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+f2024-06-03 17:00:16 DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+i2024-06-03 17:00:16 DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+T2024-06-03 17:00:18 DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+X2024-06-03 17:00:18 DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+s2024-06-03 17:00:18 DEBUG i.netty.util.NetUtilInitializations - Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+ä2024-06-03 17:00:18 DEBUG io.netty.util.NetUtil - Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+∆2024-06-03 17:00:18 DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default LoopResources: DefaultLoopResources {prefix=reactor-http, daemon=true, selectCount=8, workerCount=8}
+∂2024-06-03 17:00:18 DEBUG reactor.netty.tcp.TcpResources - [http] resources will use the default ConnectionProvider: reactor.netty.resources.DefaultPooledConnectionProvider@19f02280
+b2024-06-03 17:00:18 DEBUG r.netty.resources.DefaultLoopIOUring - Default io_uring support : false
+]2024-06-03 17:00:18 DEBUG r.netty.resources.DefaultLoopEpoll - Default Epoll support : false
+ù2024-06-03 17:00:18 DEBUG i.n.u.internal.NativeLibraryLoader - -Dio.netty.native.workdir: /var/folders/y9/4jq05fgs23b77hb43n74jlbm80379z/T (io.netty.tmpdir)
+m2024-06-03 17:00:18 DEBUG i.n.u.internal.NativeLibraryLoader - -Dio.netty.native.deleteLibAfterLoading: true
+h2024-06-03 17:00:18 DEBUG i.n.u.internal.NativeLibraryLoader - -Dio.netty.native.tryPatchShadedId: true
+u2024-06-03 17:00:18 DEBUG i.n.u.internal.NativeLibraryLoader - -Dio.netty.native.detectNativeLibraryDuplicates: true
+_2024-06-03 17:00:18 DEBUG r.netty.resources.DefaultLoopKQueue - Default KQueue support : false
+\2024-06-03 17:00:18 DEBUG i.n.c.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 16
+v2024-06-03 17:00:18 DEBUG i.n.u.concurrent.GlobalEventExecutor - -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+e2024-06-03 17:00:18 DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+k2024-06-03 17:00:18 DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+r2024-06-03 17:00:18 DEBUG i.n.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+n2024-06-03 17:00:18 DEBUG i.netty.resolver.dns.DnsNameResolver - Default ResolvedAddressTypes: IPV4_PREFERRED
+h2024-06-03 17:00:18 DEBUG i.netty.resolver.dns.DnsNameResolver - Localhost address: localhost/127.0.0.1
+X2024-06-03 17:00:18 DEBUG i.netty.resolver.dns.DnsNameResolver - Windows hostname: null
+ﬂ2024-06-03 17:00:18 DEBUG i.netty.resolver.dns.DnsNameResolver - Default search domains: [centraluol.intranet, uolcorp.intranet, host.intranet, dc.pags, srv.corp.intranet, corp.intranet, adm.intranet, intranet, central.intranet, uol.tpb.corp, net.intranet, gtservicos, intranet.pags, host.pags, intranet.pagseguro.uol, qa.host.intranet.pagseguro.uol]
+~2024-06-03 17:00:18 DEBUG i.netty.resolver.dns.DnsNameResolver - Default UnixResolverOptions{ndots=1, timeout=5, attempts=16}
+i2024-06-03 17:00:18 DEBUG i.n.r.DefaultHostsFileEntriesResolver - -Dio.netty.hostsFileRefreshInterval: 0
+”2024-06-03 17:00:18 DEBUG i.n.u.internal.NativeLibraryLoader - Successfully loaded the library /var/folders/y9/4jq05fgs23b77hb43n74jlbm80379z/T/libnetty_resolver_dns_native_macos_x86_641873629413140673421.dylib
+è2024-06-03 17:00:18 DEBUG i.n.r.d.DnsServerAddressStreamProviders - io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider: available
+ø2024-06-03 17:00:18 DEBUG r.n.r.PooledConnectionProvider - Creating a new [http] client pool [PoolFactory{evictionInterval=PT0S, leasingStrategy=fifo, maxConnections=500, maxIdleTime=-1, maxLifeTime=-1, metricsEnabled=false, pendingAcquireMaxCount=1000, pendingAcquireTimeout=45000}] for [localhost/<unresolved>:60954]
+j2024-06-03 17:00:18 DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 33292 (auto-detected)
+|2024-06-03 17:00:18 DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: a8:60:b6:ff:fe:19:de:bf (auto-detected)
+e2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 16
+g2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 16
+b2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+_2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 9
+f2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 4194304
+g2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+g2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+r2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+k2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+n2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+p2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: false
+v2024-06-03 17:00:18 DEBUG i.n.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+Z2024-06-03 17:00:18 DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+b2024-06-03 17:00:18 DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+g2024-06-03 17:00:18 DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+∂2024-06-03 17:00:18 DEBUG r.n.r.PooledConnectionProvider - [1b97e075] Created a new pooled channel, now: 0 active connections, 0 inactive connections and 0 pending acquire requests.
+d2024-06-03 17:00:18 DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+`2024-06-03 17:00:18 DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+í2024-06-03 17:00:18 DEBUG i.n.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@5b1db354
+Â2024-06-03 17:00:18 DEBUG r.netty.transport.TransportConfig - [1b97e075] Initialized pipeline DefaultChannelPipeline{(reactor.left.httpCodec = io.netty.handler.codec.http.HttpClientCodec), (reactor.left.httpDecompressor = io.netty.handler.codec.http.HttpContentDecompressor), (reactor.right.reactiveBridge = reactor.netty.channel.ChannelOperationsHandler)}
+e2024-06-03 17:00:18 DEBUG i.n.b.ChannelInitializerExtensions - -Dio.netty.bootstrap.extensions: null
+w2024-06-03 17:00:18 DEBUG r.netty.transport.TransportConnector - [1b97e075] Connecting to [localhost/127.0.0.1:60954].
+≥2024-06-03 17:00:18 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] Registering pool release on close event for channel
+›2024-06-03 17:00:18 DEBUG r.n.r.PooledConnectionProvider - [1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] Channel connected, now: 1 active connections, 0 inactive connections and 0 pending acquire requests.
+¯2024-06-03 17:00:18 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] onStateChange(PooledConnection{channel=[id: 0x1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954]}, [connected])
+ï2024-06-03 17:00:18 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075-1, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] onStateChange(GET{uri=null, connection=PooledConnection{channel=[id: 0x1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954]}}, [configured])
+»2024-06-03 17:00:18 DEBUG r.n.http.client.HttpClientConnect - [1b97e075-1, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] Handler is being applied: {uri=http://localhost:60954/person, method=POST}
+ü2024-06-03 17:00:18 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075-1, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] onStateChange(POST{uri=/person, connection=PooledConnection{channel=[id: 0x1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954]}}, [request_prepared])
+b2024-06-03 17:00:18 DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 4096
+P2024-06-03 17:00:18 DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+U2024-06-03 17:00:18 DEBUG io.netty.util.Recycler - -Dio.netty.recycler.chunkSize: 32
+W2024-06-03 17:00:18 DEBUG io.netty.util.Recycler - -Dio.netty.recycler.blocking: false
+f2024-06-03 17:00:18 DEBUG io.netty.util.Recycler - -Dio.netty.recycler.batchFastThreadLocalOnly: true
+õ2024-06-03 17:00:19 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075-1, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] onStateChange(POST{uri=/person, connection=PooledConnection{channel=[id: 0x1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954]}}, [request_sent])
+_2024-06-03 17:00:19 DEBUG a.c.d.p.consumer.BaseJdkMockServer - Received request: 	method: POST
+	path: /person
+	query: {}
+°	headers: {Accept-encoding=[gzip], Accept=[*/*], Host=[localhost:60954], User-agent=[ReactorNetty/1.1.15], Content-type=[application/json], Content-length=[26]}
+#	matchers: MatchingRules(rules={})
+'	generators: Generators(categories={})
++	body: PRESENT({"name": "vini","age": 32})
+_2024-06-03 17:00:19 DEBUG a.c.d.p.c.matchers.RequestMatching - comparing to expected request: 
+¥HttpRequest(method=POST, path=/person, query={}, headers={}, body=PRESENT({"name": "vini","age": 32}), matchingRules=MatchingRules(rules={}), generators=Generators(categories={}))
+V2024-06-03 17:00:19 DEBUG a.c.d.p.c.matchers.RequestMatching - pluginConfiguration={}
+”2024-06-03 17:00:19 DEBUG a.c.dius.pact.core.matchers.Matching - matchBody: context=MatchingContext(matchers=MatchingRuleCategory(name=body, matchingRules={}), allowUnexpectedKeys=false, pluginConfiguration={})
+§2024-06-03 17:00:19 DEBUG a.c.dius.pact.core.matchers.Matching - Found a matcher for application/json -> au.com.dius.pact.core.matchers.JsonContentMatcher@5ec84592
+Ä2024-06-03 17:00:19 DEBUG a.c.d.p.c.m.JsonContentMatcher - compareValues: No matcher defined for path [$, name], using equality
+2024-06-03 17:00:19 DEBUG a.c.d.p.c.m.JsonContentMatcher - compareValues: No matcher defined for path [$, age], using equality
+≠2024-06-03 17:00:19 DEBUG a.c.d.p.c.matchers.RequestMatching - Request mismatch: RequestMatchResult(method=null, path=null, query=[], cookie=null, headers=[], body=BodyMatchResult(typeMismatch=null, bodyResults=[BodyItemMatchResult(key=$.name, result=[]), BodyItemMatchResult(key=$.age, result=[])]))
+®2024-06-03 17:00:19 DEBUG a.c.d.p.consumer.BaseJdkMockServer - Generating response: HttpResponse(status=200, headers={}, body=PRESENT({"id": 1, "name": "vini", "age": 32}), matchingRules=MatchingRules(rules={status=MatchingRuleCategory(name=status, matchingRules={}), header=MatchingRuleCategory(name=header, matchingRules={}), body=MatchingRuleCategory(name=body, matchingRules={})}), generators=Generators(categories={}))
+Ñ2024-06-03 17:00:19 DEBUG i.n.handler.codec.compression.Brotli - brotli4j not in the classpath; Brotli support will be unavailable.
+Ÿ2024-06-03 17:00:19 DEBUG r.n.http.client.HttpClientOperations - [1b97e075-1, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] Received response (auto-read:false) : RESPONSE(decodeResult: success, version: HTTP/1.1)
+HTTP/1.1 200 OK
+Date: <filtered>
+Content-length: <filtered>
+†2024-06-03 17:00:19 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075-1, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] onStateChange(POST{uri=/person, connection=PooledConnection{channel=[id: 0x1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954]}}, [response_received])
+÷2024-06-03 17:00:19 DEBUG reactor.netty.channel.FluxReceive - [1b97e075-1, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] [terminated=false, cancelled=false, pending=0, error=null]: subscribing inbound receiver
+ö2024-06-03 17:00:19 DEBUG r.n.http.client.HttpClientOperations - [1b97e075-1, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] Received last HTTP packet
+ü2024-06-03 17:00:19 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] onStateChange(POST{uri=/person, connection=PooledConnection{channel=[id: 0x1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954]}}, [response_completed])
+ö2024-06-03 17:00:19 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] onStateChange(POST{uri=/person, connection=PooledConnection{channel=[id: 0x1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954]}}, [disconnecting])
+ë2024-06-03 17:00:19 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] Releasing channel
+€2024-06-03 17:00:19 DEBUG r.n.r.PooledConnectionProvider - [1b97e075, L:/127.0.0.1:60970 - R:localhost/127.0.0.1:60954] Channel cleaned, now: 0 active connections, 1 inactive connections and 0 pending acquire requests.
+B2024-06-03 17:00:19 WARN  a.com.dius.pact.core.support.Metrics - 
+r            Please note: we are tracking events anonymously to gather important usage statistics like JVM version
+r            and operating system. To disable tracking, set the 'pact_do_not_track' system property or environment
+             variable to 'true'.
+            
+g2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.c.InternalHttpClient - ex-0000000002 preparing request execution
+n2024-06-03 17:00:19 DEBUG o.a.h.c.h.impl.classic.ProtocolExec - ex-0000000002 target auth state: UNCHALLENGED
+m2024-06-03 17:00:19 DEBUG o.a.h.c.h.impl.classic.ProtocolExec - ex-0000000002 proxy auth state: UNCHALLENGED
+ó2024-06-03 17:00:19 DEBUG o.a.h.c.h.impl.classic.ConnectExec - ex-0000000002 acquiring connection with route {s}->https://www.google-analytics.com:443
+j2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.c.InternalHttpClient - ex-0000000002 acquiring endpoint (3 MINUTES)
+˚2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.i.PoolingHttpClientConnectionManager - ex-0000000002 endpoint lease request (3 MINUTES) [route: {s}->https://www.google-analytics.com:443][total available: 0; route allocated: 0 of 100; total allocated: 0 of 200]
+Ë2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.i.PoolingHttpClientConnectionManager - ex-0000000002 endpoint leased [route: {s}->https://www.google-analytics.com:443][total available: 0; route allocated: 1 of 100; total allocated: 1 of 200]
+r2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.i.PoolingHttpClientConnectionManager - ex-0000000002 acquired ep-0000000001
+k2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.c.InternalHttpClient - ex-0000000002 acquired endpoint ep-0000000001
+ä2024-06-03 17:00:19 DEBUG o.a.h.c.h.impl.classic.ConnectExec - ex-0000000002 opening connection {s}->https://www.google-analytics.com:443
+f2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.c.InternalHttpClient - ep-0000000001 connecting endpoint (null)
+£2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.i.PoolingHttpClientConnectionManager - ep-0000000001 connecting endpoint to https://www.google-analytics.com:443 (3 MINUTES)
+Ä2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.i.DefaultHttpClientConnectionOperator - www.google-analytics.com resolving remote address
+T2024-06-03 17:00:19 DEBUG a.c.d.p.consumer.BaseJdkMockServer - Mock server shutdown
+¸2024-06-03 17:00:19 DEBUG r.n.r.DefaultPooledConnectionProvider - [1b97e075, L:/127.0.0.1:60970 ! R:localhost/127.0.0.1:60954] onStateChange(PooledConnection{channel=[id: 0x1b97e075, L:/127.0.0.1:60970 ! R:localhost/127.0.0.1:60954]}, [disconnecting])
+2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.i.DefaultHttpClientConnectionOperator - www.google-analytics.com resolved to [www.google-analytics.com/216.239.32.178, www.google-analytics.com/216.239.34.178, www.google-analytics.com/216.239.36.178, www.google-analytics.com/216.239.38.178, www.google-analytics.com/2001:4860:4802:36:0:0:0:178, www.google-analytics.com/2001:4860:4802:34:0:0:0:178, www.google-analytics.com/2001:4860:4802:32:0:0:0:178, www.google-analytics.com/2001:4860:4802:38:0:0:0:178]
+¥2024-06-03 17:00:19 DEBUG o.a.h.c.h.i.i.DefaultHttpClientConnectionOperator - www.google-analytics.com:443 connecting null->www.google-analytics.com/216.239.32.178:443 (3 MINUTES)
+õ2024-06-03 17:00:19 DEBUG o.a.h.c.h.s.SSLConnectionSocketFactory - Connecting socket to www.google-analytics.com/216.239.32.178:443 with timeout 3 MINUTES
+ h2024-06-03 17:00:19 INFO  a.c.d.p.c.junit5.PactConsumerTestExt - Writing pacts out to default directory
+ ò2024-06-03 17:00:19 DEBUG a.c.d.p.c.junit5.PactConsumerTestExt - Writing pact other_api -> reactive_api to file build/pacts/other_api-reactive_api.json
+ i2024-06-03 17:00:19 DEBUG o.a.h.c.h.s.SSLConnectionSocketFactory - Enabled protocols: [TLSv1.3, TLSv1.2]
+ ﬂ2024-06-03 17:00:19 DEBUG o.a.h.c.h.s.SSLConnectionSocketFactory - Enabled cipher suites: [TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_CHACHA20_POLY1305_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_GCM_SHA384, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+ ]2024-06-03 17:00:19 DEBUG o.a.h.c.h.s.SSLConnectionSocketFactory - Starting handshake (null)

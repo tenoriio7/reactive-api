@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Mono
+import reactor.kotlin.test.test
 
 
 @ExtendWith(PactConsumerTestExt::class)
@@ -18,16 +19,17 @@ class PersonConsumerContractTest : PersonPacts(){
     @Test
     @PactTestFor(providerName = "reactive_api")
     fun testPerson(mockServer: MockServer) {
-        val person = Person(id = 2, name = "vini", age = 32)
         val webClient = WebClient.create(mockServer.getUrl())
-        val response: Mono<String> = webClient.post()
+        val expectedResponse = """{"id": 1, "name": "vini", "age": 32}"""
+         webClient.post()
             .uri("/person")
             .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE) // Define o Content-Type como application/json
             .bodyValue("""{"name": "vini","age": 32}""")
             .retrieve()
             .bodyToMono(String::class.java)
-
-        val expectedResponse = """{"id": 1, "name": "vini", "age": 32}"""
-        assertEquals(expectedResponse, response.block())
+            .test()
+            .assertNext{
+                assertEquals(expectedResponse, it)
+            }.verifyComplete()
     }
 }
