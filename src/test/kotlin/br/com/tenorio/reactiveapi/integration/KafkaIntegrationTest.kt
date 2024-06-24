@@ -112,7 +112,7 @@ class KafkaIntegrationTest {
         assert(consumedMessages.isNotEmpty())
 
         val message = consumedMessages.get(0)
-        println("pica de cachorro $message")
+        println("kkkk cachorro $message")
     }
     
 }
