@@ -22,7 +22,7 @@ class WebhookService(
         return webhookRepository.findAll()
     }
 
-    @Scheduled(fixedRate = 10000) // Executa a cada 10 segundos
+    @Scheduled(fixedRate = 100000) // Executa a cada 10 segundos
     fun delete(): Mono<Void> {
         return  webhookRepository.deleteAll()
     }

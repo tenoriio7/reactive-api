@@ -1,0 +1,76 @@
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do contêiner */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Estilo do título */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilo do campo de texto */
+#webhookIdInput {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin-right: 10px;
+}
+
+/* Estilo do campo de texto ao focar */
+#webhookIdInput:focus {
+    border-color: #007bff;
+}
+
+/* Estilo do botão */
+#searchBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo do botão ao passar o mouse */
+#searchBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo das mensagens de webhook */
+.message {
+    text-align: left;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Espaçamento para a área dos resultados */
+.webhook {
+    margin-top: 20px;
+}
