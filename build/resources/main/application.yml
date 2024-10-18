@@ -1,9 +1,0 @@
-spring:
-  r2dbc:
-    url: r2dbc:h2:mem:///testdb
-    driver: h2
-    username: sa
-    password: # deixe vazio
-  h2:
-    console:
-      enabled: true

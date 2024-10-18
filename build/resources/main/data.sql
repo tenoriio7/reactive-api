@@ -1,4 +1,0 @@
-CREATE TABLE IF NOT EXISTS webhook (
-    id SERIAL PRIMARY KEY,
-    notification CHARACTER VARYING(MAX) NOT NULL
-);
