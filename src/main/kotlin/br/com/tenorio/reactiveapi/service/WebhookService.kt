@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import java.time.Duration
+import java.time.LocalDateTime
 
 
 @Service
@@ -25,6 +26,13 @@ class WebhookService(
     @Scheduled(fixedRate = 100000) // Executa a cada 10 segundos
     fun delete(): Mono<Void> {
         return  webhookRepository.deleteAll()
+    }
+
+    @Scheduled(fixedRate = 60000) // Executa a cada 24 horas
+    fun cleanupOldRecords(): Mono<Void> {
+        val thresholdTime = LocalDateTime.now().minusMinutes(1) // TTL de 1 dia
+        println("realize ttl rule")
+        return webhookRepository.deleteByCreatedAtBefore(thresholdTime)
     }
 
     fun findById(id: Long): Mono<Webhook> {

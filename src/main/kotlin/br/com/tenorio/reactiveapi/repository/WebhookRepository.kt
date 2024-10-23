@@ -9,4 +9,6 @@ import java.time.LocalDateTime
 
 interface WebhookRepository : R2dbcRepository<Webhook, Long> {
 
+    @Query("DELETE FROM webhook WHERE created_at < :thresholdTime")
+    fun deleteByCreatedAtBefore(thresholdTime: LocalDateTime): Mono<Void>
 }
